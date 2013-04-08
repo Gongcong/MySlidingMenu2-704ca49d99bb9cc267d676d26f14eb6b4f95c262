@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.capinfo.myslidingmenu.MainActivity;
+import com.capinfo.myslidingmenu.MyApplication;
 import com.capinfo.unlock.LockPatternView.Cell;
 import com.capinfo.unlock.LockPatternView.DisplayMode;
 import com.capinfo.unlock.LockPatternView.OnPatternListener;
@@ -31,28 +32,23 @@ public class LockMain extends Activity implements OnClickListener {
 	private Button btn_check_pwd;
 
 	private boolean opFLag = true;
-	List<Cell> spattern;
-	String mpattern;
-	String npattern;
-	int i = 0;
+	private List<Cell> spattern;
+	private String mpattern;
+	private String npattern;
+	private int i = 0;
 	private LockPatternView lockPatternViewSmall;
+	private MyApplication MyApp;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.unlock);
-		lockPatternView = (LockPatternView) findViewById(R.id.lpv_lock);
-
-		lockPatternViewSmall = (LockPatternView) findViewById(R.id.lpv_lock_first);
-
-		btn_reset_pwd = (Button) findViewById(R.id.btn_reset_pwd);
-		btn_set_pwd = (Button) findViewById(R.id.btn_set_pwd);
-		btn_check_pwd = (Button) findViewById(R.id.btn_check_pwd);
+		MyApp = (MyApplication)getApplication();
+		opFLag = MyApp.getLockState();
+		initView();
 		btn_reset_pwd.setOnClickListener(this);
 		btn_set_pwd.setOnClickListener(this);
 		btn_check_pwd.setOnClickListener(this);
-
 		lockPatternUtils = new LockPatternUtils(this);
-
 		lockPatternView.setOnPatternListener(new OnPatternListener() {
 
 			public void onPatternStart() {
@@ -139,19 +135,26 @@ public class LockMain extends Activity implements OnClickListener {
 			@Override
 			public void onPatternCleared() {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void onPatternCellAdded(List<Cell> pattern) {
 				// TODO Auto-generated method stub
-				
-			}
 
+			}
 
 		});
 	}
 
+	void initView() {
+		lockPatternView = (LockPatternView) findViewById(R.id.lpv_lock);
+		lockPatternViewSmall = (LockPatternView) findViewById(R.id.lpv_lock_first);
+		btn_reset_pwd = (Button) findViewById(R.id.btn_reset_pwd);
+		btn_set_pwd = (Button) findViewById(R.id.btn_set_pwd);
+		btn_check_pwd = (Button) findViewById(R.id.btn_check_pwd);
+		
+	}
 	public void onClick(View v) {
 		if (v == btn_reset_pwd) {
 			lockPatternViewSmall.clearPattern();

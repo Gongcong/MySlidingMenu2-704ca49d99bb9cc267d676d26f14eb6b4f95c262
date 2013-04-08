@@ -2,11 +2,10 @@ package com.capinfo.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,9 +21,6 @@ public class SettingAdapter extends BaseAdapter {
 
 	private Context mContext;
 	private String[] title;
-	private TextView tvTitle;
-	private ImageButton btn;
-	private ImageView img2;
 
 	public SettingAdapter(Context mContext, String[] title) {
 		super();
@@ -63,8 +59,8 @@ public class SettingAdapter extends BaseAdapter {
 					.findViewById(R.id.menu_item);
 			viewHolder.btn = (ImageButton) convertView
 					.findViewById(R.id.button1);
-			viewHolder.image = convertView.findViewById(R.id.img);
-			// viewHolder.image2 = convertView.findViewById(R.id.img2);
+			viewHolder.image = (ImageView) convertView.findViewById(R.id.img);
+			viewHolder.checkbox = (CheckBox) convertView.findViewById(R.id.checkBox1);
 			convertView.setTag(viewHolder);
 		} else {
 			viewHolder = (ViewHolder) convertView.getTag();
@@ -75,55 +71,21 @@ public class SettingAdapter extends BaseAdapter {
 		}
 		// 当title为拨打电话二次确认是显示按钮，不显示图片
 		if (position == 5) {
-			viewHolder.btn.setVisibility(View.VISIBLE);
-			// viewHolder.image2.setVisibility(i);
+			viewHolder.checkbox.setVisibility(View.VISIBLE);
 			viewHolder.image.setVisibility(View.INVISIBLE);
-		}
-		if (btn != null) {
-			// btn.setOnTouchListener(new OnTouchListener() {
-			// @Override
-			// public boolean onTouch(View v, MotionEvent event) {
-			// // TODO Auto-generated method stub
-			// if (event.getAction() == MotionEvent.ACTION_DOWN) {
-			// // 更改为按下时的背景图片
-			// System.out.println("down");
-			// v.setBackgroundResource(R.drawable.after);
-			// } else if (event.getAction() == MotionEvent.ACTION_UP) {
-			// // 改为抬起时的图片
-			// v.setBackgroundResource(R.drawable.before);
-			// }
-			// return false;
-			// }
-			// });
-			convertView.setOnTouchListener(new OnTouchListener() {
-
-				@Override
-				public boolean onTouch(View v, MotionEvent event) {
-					// TODO Auto-generated method stub
-					System.out.println("down");
-					// TODO Auto-generated method stub
-					if (event.getAction() == MotionEvent.ACTION_DOWN) {
-						// 更改为按下时的背景图片
-						System.out.println("down");
-						//v.setBackgroundResource(R.drawable.after);
-					} else if (event.getAction() == MotionEvent.ACTION_UP) {
-						// 改为抬起时的图片
-						//v.setBackgroundResource(R.drawable.before);
-					}
-
-					return false;
-				}
-			});
 
 		}
+
 		viewHolder.tvTitle.setText(this.title[position]);
 		return convertView;
 	}
 
+
 	final static class ViewHolder {
 		TextView tvTitle;
 		ImageButton btn;
-		View image;
-		View image2;
+		ImageView image;
+		CheckBox checkbox;
 	}
+
 }

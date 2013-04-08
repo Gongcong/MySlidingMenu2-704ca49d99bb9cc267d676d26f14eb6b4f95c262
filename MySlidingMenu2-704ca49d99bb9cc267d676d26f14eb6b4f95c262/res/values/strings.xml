@@ -10,12 +10,6 @@
     <string name="menu3">版本信息</string>
     <string name="menu4">数据更新</string>
     <string name="menu5">注销登录</string>
-    
-    <string name="boty_text1">布局1</string>
-    <string name="boty_text2">布局2</string>
-    <string name="boty_text3">布局3</string>
-    <string name="boty_text4">布局4</string>
-    <string name="boty_text5">布局5</string>
          <!-- Accessibility description sent when user starts drawing a lock pattern. [CHAR LIMIT=NONE] -->
     <string name="lockscreen_access_pattern_start">Pattern started</string>
     <!-- Accessibility description sent when the pattern times out and is cleared. [CHAR LIMIT=NONE] -->

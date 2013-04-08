@@ -33,6 +33,7 @@ import com.capinfo.cn.Person;
 import com.capinfo.cn.widget.PinnedHeaderListView;
 import com.capinfo.cn.widget.SectionComposerAdapter;
 import com.capinfo.myslidingmenu.view.MySlidingMenuView;
+import com.capinfo.unlock.LockMain;
 import com.example.myslidingmenu2.R;
 
 /**
@@ -44,19 +45,27 @@ import com.example.myslidingmenu2.R;
 public class MainActivity extends BaseActivity implements OnClickListener,
 		OnTouchingLetterChangedListener {
 
+	private final int VERSION = 0;
+	private final int LOCKSETTING = 1;
+	private final int TEAMINFO = 2;
+	private final int UPDATEVERSION = 3;
+	private final int UPDATEDATA = 4;
+	private final int CALL = 5;
+	private final int EXIT = 6;
 	private View myAs = null;// 布局
 	private String title[] = { "版本号", "设置锁屏手势", "开发团队", "版本更新", "数据更新",
 			"拨打电话二次确认", "退出软件" };
 	private MySlidingMenuView slidingMenu;
 	boolean isExit;
-	ListView list1;
-	ImageView img2;
-	ListView menu_listview;
-	PinnedHeaderListView headerListView; // Diy ListView
-	SectionComposerAdapter adapter; // 适配器
-	MySideBar myView;
-	List<Pair<String, List<Person>>> all;
+	private ListView list1;
+	private ImageView img2;
+	private ListView menu_listview;
+	private PinnedHeaderListView headerListView; // Diy ListView
+	private SectionComposerAdapter adapter; // 适配器
+	private MySideBar myView;
+	private List<Pair<String, List<Person>>> all;
 	private TextView select_side_bar_text;
+	private MyApplication MyApp;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -64,11 +73,10 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 		init();
-
-		TelephonyManager tm = (TelephonyManager) this.getSystemService(TELEPHONY_SERVICE);
+		TelephonyManager tm = (TelephonyManager) this
+				.getSystemService(TELEPHONY_SERVICE);
 		tm.getDeviceId();
-		     System.out.println("1111="+tm.getDeviceId());
-	     
+		System.out.println("1111=" + tm.getDeviceId());
 
 	}
 
@@ -76,6 +84,7 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 	 * 初始化布局
 	 */
 	private void init() {
+		MyApp = (MyApplication) getApplication();
 		slidingMenu = (MySlidingMenuView) findViewById(R.id.sliding_menu);
 		// 使用覆盖样式，仿网易新闻
 		// slidingMenu.setlSlidingMenuState(MySlidingMenuView.SLIDING_MENU_COVER);
@@ -94,21 +103,41 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 		showmain.setOnClickListener(this);
 		Button showmenu = (Button) myAs.findViewById(R.id.showmenu);
 		showmenu.setOnClickListener(this);
-
 		menu_listview.setOnItemClickListener(new OnItemClickListener() {
-
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
 				switch (position) {
-				case 0:
+				case VERSION:
 					Toast.makeText(getApplicationContext(),
 							String.valueOf(position), Toast.LENGTH_LONG).show();
 					break;
 
-				case 5:
-
+				case LOCKSETTING:
+					System.out.println("empty" + MyApp.isPatternEmpty());
+					if (MyApp.isPatternEmpty()) {
+						MyApp.setLockState(false);
+						Intent it = new Intent();
+						it.setClass(MainActivity.this, LockMain.class);
+						startActivity(it);
+					} else {
+						MyApp.setLockState(true);
+						Intent it = new Intent();
+						it.setClass(MainActivity.this, LockMain.class);
+						startActivity(it);
+					}
+					break;
+				case TEAMINFO:
+					break;
+				case UPDATEVERSION:
+					break;
+				case UPDATEDATA:
+					break;
+				case CALL:				
+					break;
+				case EXIT:
+					AppManager.getAppManager().AppExit(MainActivity.this);
 					break;
 				default:
 					break;
@@ -200,11 +229,11 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 					Toast.LENGTH_SHORT).show();
 			mHandler.sendEmptyMessageDelayed(0, 2000);
 		} else {
-			Intent intent = new Intent(Intent.ACTION_MAIN);
-			intent.addCategory(Intent.CATEGORY_HOME);
-			startActivity(intent);
-			//System.exit(0);
-			finish();
+//			Intent intent = new Intent(Intent.ACTION_MAIN);
+//			intent.addCategory(Intent.CATEGORY_HOME);
+//			startActivity(intent);
+			AppManager.getAppManager().AppExit(this);
+			//finish();
 		}
 	}
 
@@ -246,8 +275,7 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 		System.out.print("width" + layoutParams.width);
 		listView.setLayoutParams(layoutParams);
 	}
-	
-	
+
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
 		// TODO Auto-generated method stub

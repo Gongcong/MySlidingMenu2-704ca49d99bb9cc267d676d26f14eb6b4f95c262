@@ -71,7 +71,7 @@ public class LockPatternUtils {
     	editor.commit();
     }
     
-    public String getLockPaternString(){
+    public static String getLockPaternString(){
     	System.out.println(preference.getString(KEY_LOCK_PWD, ""));
     	return preference.getString(KEY_LOCK_PWD, "");
     }

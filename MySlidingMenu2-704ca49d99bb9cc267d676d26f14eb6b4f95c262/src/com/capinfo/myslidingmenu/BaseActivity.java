@@ -1,25 +1,27 @@
 package com.capinfo.myslidingmenu;
 
 import android.app.Activity;
-import android.content.Intent;
-
-import com.capinfo.unlock.LockMain;
+import android.os.Bundle;
 
 public class BaseActivity extends Activity{
 
+	
 	@Override
-	protected void onPause() {
+	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		//Toast.makeText(getApplicationContext(), "home", Toast.LENGTH_LONG).show();
-		System.out.println("onpause");
-		super.onPause();
+		
+		super.onCreate(savedInstanceState);
+		AppManager.getAppManager().addActivity(this);
 	}
 
+
+
 	@Override
-	protected void onResume() {
+	protected void onDestroy() {
 		// TODO Auto-generated method stub
-		System.out.println("resume");
-		super.onResume();
+		super.onDestroy();
+		AppManager.getAppManager().finishActivity(this);
 	}
+	
 
 }

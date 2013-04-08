@@ -5,4 +5,7 @@
              or "lock_height" -->
         <attr name="aspect" format="string" />
     </declare-styleable>
+        <declare-styleable name="Theme">
+        <attr name="switchStyle" format="reference" />
+    </declare-styleable>
 </resources>

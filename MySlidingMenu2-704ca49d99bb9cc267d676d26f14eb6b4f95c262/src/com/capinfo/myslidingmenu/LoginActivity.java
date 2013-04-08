@@ -24,7 +24,7 @@ import android.widget.Toast;
 import com.capinfo.util.StringUtils;
 import com.example.myslidingmenu2.R;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends BaseActivity {
 
 	/** Called when the activity is first created. */
 	// 1.远程登录(用户名和密码超过3位长度则成功,在服务器可以自己设置代码)

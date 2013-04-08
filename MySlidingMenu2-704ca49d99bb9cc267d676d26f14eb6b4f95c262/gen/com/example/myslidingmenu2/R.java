@@ -22,6 +22,10 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int aspect=0x7f010000;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int switchStyle=0x7f010001;
     }
     public static final class dimen {
         public static final int padding_large=0x7f050002;
@@ -38,67 +42,72 @@ containing a value of this type.
         public static final int btn_code_lock_default_holo=0x7f020006;
         public static final int btn_code_lock_touched=0x7f020007;
         public static final int btn_code_lock_touched_holo=0x7f020008;
-        public static final int dialog_full_dark=0x7f020009;
-        public static final int file_list_item_normal=0x7f02001c;
-        public static final int file_list_item_press=0x7f02001b;
-        public static final int head_back_normal=0x7f02000a;
-        public static final int ic_action_search=0x7f02000b;
-        public static final int ic_launcher=0x7f02000c;
-        public static final int icon=0x7f02000d;
-        public static final int indicator_code_lock_drag_direction_green_up_holo=0x7f02000e;
-        public static final int indicator_code_lock_drag_direction_red_up=0x7f02000f;
-        public static final int indicator_code_lock_drag_direction_red_up_holo=0x7f020010;
-        public static final int indicator_code_lock_point_area_default=0x7f020011;
-        public static final int indicator_code_lock_point_area_default_holo=0x7f020012;
-        public static final int indicator_code_lock_point_area_green=0x7f020013;
-        public static final int indicator_code_lock_point_area_green_holo=0x7f020014;
-        public static final int indicator_code_lock_point_area_red=0x7f020015;
-        public static final int indicator_code_lock_point_area_red_holo=0x7f020016;
-        public static final int list_selector=0x7f020017;
-        public static final int scrollbar_handle_accelerated_anim2=0x7f020018;
-        public static final int setting_1=0x7f020019;
-        public static final int widget_dface_loading=0x7f02001a;
+        public static final int check=0x7f020009;
+        public static final int dialog_full_dark=0x7f02000a;
+        public static final int file_list_item_normal=0x7f02001f;
+        public static final int file_list_item_press=0x7f02001e;
+        public static final int head_back_normal=0x7f02000b;
+        public static final int ic_action_search=0x7f02000c;
+        public static final int ic_launcher=0x7f02000d;
+        public static final int icon=0x7f02000e;
+        public static final int indicator_code_lock_drag_direction_green_up_holo=0x7f02000f;
+        public static final int indicator_code_lock_drag_direction_red_up=0x7f020010;
+        public static final int indicator_code_lock_drag_direction_red_up_holo=0x7f020011;
+        public static final int indicator_code_lock_point_area_default=0x7f020012;
+        public static final int indicator_code_lock_point_area_default_holo=0x7f020013;
+        public static final int indicator_code_lock_point_area_green=0x7f020014;
+        public static final int indicator_code_lock_point_area_green_holo=0x7f020015;
+        public static final int indicator_code_lock_point_area_red=0x7f020016;
+        public static final int indicator_code_lock_point_area_red_holo=0x7f020017;
+        public static final int list_selector=0x7f020018;
+        public static final int off=0x7f020019;
+        public static final int on=0x7f02001a;
+        public static final int scrollbar_handle_accelerated_anim2=0x7f02001b;
+        public static final int setting_1=0x7f02001c;
+        public static final int widget_dface_loading=0x7f02001d;
     }
     public static final class id {
         public static final int SelectDemoActivity=0x7f090004;
-        public static final int btn_check_pwd=0x7f09001f;
-        public static final int btn_reset_pwd=0x7f09001e;
-        public static final int btn_set_pwd=0x7f09001d;
+        public static final int btn_check_pwd=0x7f090021;
+        public static final int btn_reset_pwd=0x7f090020;
+        public static final int btn_set_pwd=0x7f09001f;
         public static final int button1=0x7f090002;
-        public static final int button2=0x7f090017;
-        public static final int header=0x7f09000b;
+        public static final int button2=0x7f090018;
+        public static final int checkBox1=0x7f09000b;
+        public static final int header=0x7f09000c;
         public static final int img=0x7f09000a;
-        public static final int item_callMobile=0x7f09000f;
-        public static final int item_callPhone=0x7f090010;
-        public static final int item_inDetail=0x7f090011;
-        public static final int job=0x7f09000d;
-        public static final int layout_other=0x7f09000e;
-        public static final int loginPasswordEdit=0x7f090016;
-        public static final int loginRememberMeCheckBox=0x7f090018;
-        public static final int loginSubmit=0x7f09001a;
-        public static final int loginUserNameEdit=0x7f090014;
-        public static final int logincancle=0x7f090019;
-        public static final int lpv_lock=0x7f09001c;
-        public static final int lpv_lock_first=0x7f09001b;
+        public static final int item_callMobile=0x7f090010;
+        public static final int item_callPhone=0x7f090011;
+        public static final int item_inDetail=0x7f090012;
+        public static final int job=0x7f09000e;
+        public static final int layout_other=0x7f09000f;
+        public static final int lockinfo=0x7f09001d;
+        public static final int loginPasswordEdit=0x7f090017;
+        public static final int loginRememberMeCheckBox=0x7f090019;
+        public static final int loginSubmit=0x7f09001b;
+        public static final int loginUserNameEdit=0x7f090015;
+        public static final int logincancle=0x7f09001a;
+        public static final int lpv_lock=0x7f09001e;
+        public static final int lpv_lock_first=0x7f09001c;
         public static final int lsComposer=0x7f090006;
         public static final int menu_item=0x7f090009;
         public static final int menu_listView=0x7f090003;
-        public static final int menu_settings=0x7f090026;
+        public static final int menu_settings=0x7f090028;
         public static final int myView=0x7f090008;
-        public static final int name=0x7f09000c;
+        public static final int name=0x7f09000d;
         public static final int persom_image=0x7f090000;
         public static final int select_side_bar_text=0x7f090007;
-        public static final int send_mms=0x7f090023;
+        public static final int send_mms=0x7f090025;
         public static final int showmenu=0x7f090005;
         public static final int sliding_menu=0x7f090001;
-        public static final int textView1=0x7f090012;
-        public static final int textView2=0x7f090013;
-        public static final int textView3=0x7f090015;
-        public static final int user_info_back=0x7f090020;
-        public static final int user_info_mail=0x7f090025;
-        public static final int user_info_mobilenum=0x7f090022;
-        public static final int user_info_phonenum=0x7f090024;
-        public static final int user_info_userface=0x7f090021;
+        public static final int textView1=0x7f090013;
+        public static final int textView2=0x7f090014;
+        public static final int textView3=0x7f090016;
+        public static final int user_info_back=0x7f090022;
+        public static final int user_info_mail=0x7f090027;
+        public static final int user_info_mobilenum=0x7f090024;
+        public static final int user_info_phonenum=0x7f090026;
+        public static final int user_info_userface=0x7f090023;
     }
     public static final class layout {
         public static final int activity_detail=0x7f030000;
@@ -116,24 +125,19 @@ containing a value of this type.
     }
     public static final class string {
         public static final int app_name=0x7f060000;
-        public static final int boty_text1=0x7f060009;
-        public static final int boty_text2=0x7f06000a;
-        public static final int boty_text3=0x7f06000b;
-        public static final int boty_text4=0x7f06000c;
-        public static final int boty_text5=0x7f06000d;
         public static final int hello_world=0x7f060001;
         /**  Accessibility description sent when user adds a cell to the pattern. [CHAR LIMIT=NONE]  
          */
-        public static final int lockscreen_access_pattern_cell_added=0x7f060010;
+        public static final int lockscreen_access_pattern_cell_added=0x7f06000b;
         /**  Accessibility description sent when the pattern times out and is cleared. [CHAR LIMIT=NONE] 
          */
-        public static final int lockscreen_access_pattern_cleared=0x7f06000f;
+        public static final int lockscreen_access_pattern_cleared=0x7f06000a;
         /**  Accessibility description sent when user completes drawing a pattern. [CHAR LIMIT=NONE] 
          */
-        public static final int lockscreen_access_pattern_detected=0x7f060011;
+        public static final int lockscreen_access_pattern_detected=0x7f06000c;
         /**  Accessibility description sent when user starts drawing a lock pattern. [CHAR LIMIT=NONE] 
          */
-        public static final int lockscreen_access_pattern_start=0x7f06000e;
+        public static final int lockscreen_access_pattern_start=0x7f060009;
         public static final int menu1=0x7f060004;
         public static final int menu2=0x7f060005;
         public static final int menu3=0x7f060006;
@@ -144,6 +148,7 @@ containing a value of this type.
     }
     public static final class style {
         public static final int AppTheme=0x7f070000;
+        public static final int MyCheckbox=0x7f070001;
     }
     public static final class styleable {
         /** Attributes that can be used with a LockPatternView.
@@ -176,5 +181,28 @@ containing a value of this type.
           @attr name android:aspect
         */
         public static final int LockPatternView_aspect = 0;
+        /** Attributes that can be used with a Theme.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #Theme_switchStyle com.example.myslidingmenu2:switchStyle}</code></td><td></td></tr>
+           </table>
+           @see #Theme_switchStyle
+         */
+        public static final int[] Theme = {
+            0x7f010001
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.example.myslidingmenu2.R.attr#switchStyle}
+          attribute's value can be found in the {@link #Theme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name android:switchStyle
+        */
+        public static final int Theme_switchStyle = 0;
     };
 }

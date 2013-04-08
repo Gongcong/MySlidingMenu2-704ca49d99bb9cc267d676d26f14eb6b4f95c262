@@ -13,24 +13,24 @@
         android:paddingTop="10dp"
         android:textSize="13sp" />
 
+    <CheckBox
+        style="@style/MyCheckbox"
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+ 		android:checked="true"
+        android:visibility="gone" />
+
     <ImageView
         android:id="@+id/img"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:layout_margin="5px"
         android:adjustViewBounds="true"
         android:src="@drawable/setting_1" />
-
-  
-        <ImageButton
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:focusable="false"
-        android:text="Button"
-        android:visibility="gone" />
-   
 
 </RelativeLayout>
