@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:descendantFocusability="blocksDescendants">
+
+    <!--
+	    重要： 此部分与滑动控件中的菜单部分相同，
+	    当控件中的菜单为隐藏状态是，
+	    默认显示此布局 注：此布局中按钮不能有ID
+	    (当使用平滑状态时可以将此部分省略)
+    -->
+
+  
+
+    <!-- 支持滑动的控件 -->
+
+    <com.capinfo.myslidingmenu.view.MySlidingMenuView
+        android:id="@+id/sliding_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+  <!-- 菜单项 -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#fff"
+            android:orientation="vertical" >
+
+      <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+            
+            <ListView
+                android:id="@+id/menu_listView"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+            </ListView>
+
+        </LinearLayout>
+       
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <!-- 内容体 -->
+
+            <include
+                android:id="@+id/SelectDemoActivity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                layout="@layout/activity_section_demo" />         
+        </LinearLayout>
+       
+    </com.capinfo.myslidingmenu.view.MySlidingMenuView>
+
+</RelativeLayout>

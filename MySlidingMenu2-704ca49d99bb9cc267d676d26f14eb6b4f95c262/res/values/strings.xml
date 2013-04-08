@@ -1,0 +1,29 @@
+<resources>
+
+    <string name="app_name">MySlidingMenu2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+	
+    <string name="menu1">打开</string>
+    <string name="menu2">开发团队</string>
+    <string name="menu3">版本信息</string>
+    <string name="menu4">数据更新</string>
+    <string name="menu5">注销登录</string>
+    
+    <string name="boty_text1">布局1</string>
+    <string name="boty_text2">布局2</string>
+    <string name="boty_text3">布局3</string>
+    <string name="boty_text4">布局4</string>
+    <string name="boty_text5">布局5</string>
+         <!-- Accessibility description sent when user starts drawing a lock pattern. [CHAR LIMIT=NONE] -->
+    <string name="lockscreen_access_pattern_start">Pattern started</string>
+    <!-- Accessibility description sent when the pattern times out and is cleared. [CHAR LIMIT=NONE] -->
+    <string name="lockscreen_access_pattern_cleared">Pattern cleared</string>
+    <!-- Accessibility description sent when user adds a cell to the pattern. [CHAR LIMIT=NONE]  -->
+    <string name="lockscreen_access_pattern_cell_added">Cell added</string>
+    <!-- Accessibility description sent when user completes drawing a pattern. [CHAR LIMIT=NONE] -->
+    <string name="lockscreen_access_pattern_detected">Pattern completed</string>
+    
+    
+</resources>

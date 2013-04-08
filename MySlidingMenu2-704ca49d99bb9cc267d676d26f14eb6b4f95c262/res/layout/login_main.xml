@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="首信通讯录" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="账号" />
+
+    <EditText
+        android:id="@+id/loginUserNameEdit"
+        android:layout_width="278dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="请输入账号"
+        android:singleLine="true" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="密码" />
+
+    <EditText
+        android:id="@+id/loginPasswordEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="36dp"
+        android:layout_toLeftOf="@+id/button2"
+        android:ems="10"
+        android:hint="请输入密码"
+        android:inputType="textPassword" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <CheckBox
+            android:id="@+id/loginRememberMeCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="记住账号和密码" />
+
+        <Button
+            android:id="@+id/logincancle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/loginSubmit"
+            android:layout_alignBottom="@+id/loginSubmit"
+            android:layout_alignRight="@+id/loginRememberMeCheckBox"
+            android:layout_marginRight="40dp"
+            android:text="取消" />
+
+        <Button
+            android:id="@+id/loginSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/loginRememberMeCheckBox"
+            android:layout_marginLeft="35dp"
+            android:layout_toRightOf="@+id/loginRememberMeCheckBox"
+            android:text="登录" />
+
+    </RelativeLayout>
+
+</LinearLayout>

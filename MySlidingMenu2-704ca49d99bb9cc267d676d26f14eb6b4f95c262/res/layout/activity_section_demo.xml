@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <Button
+        android:text="showmenu"
+        android:id="@+id/showmenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.capinfo.cn.FastScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <com.capinfo.cn.widget.PinnedHeaderListView
+            android:id="@+id/lsComposer"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:cacheColorHint="#ffffff" />
+
+        <TextView
+            android:id="@+id/select_side_bar_text"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@android:color/black"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:visibility="gone" />
+
+        <com.capinfo.cn.MySideBar
+            android:id="@+id/myView"
+            android:layout_width="30dip"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right"
+            android:background="@android:color/transparent" >
+        </com.capinfo.cn.MySideBar>
+    </com.capinfo.cn.FastScrollView>
+
+</LinearLayout>
