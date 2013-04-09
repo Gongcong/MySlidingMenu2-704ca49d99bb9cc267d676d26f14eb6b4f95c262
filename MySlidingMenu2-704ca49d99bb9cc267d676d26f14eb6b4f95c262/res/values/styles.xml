@@ -1,10 +1,12 @@
 <resources>
 
-    <style name="AppTheme" parent="android:Theme.Light" />
-    <style name="MyCheckbox" parent="@android:style/Widget.CompoundButton.CheckBox">  
-        <item name="android:button">@drawable/check</item>  
-        <item name="android:layout_margin">10dp</item>  
-        <item name="android:layout_weight">1</item>   
-</style>  
+    <style name="AppTheme" parent="android:Theme.Light" /> 
+
+    <style name="MyCheckbox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/check</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
 
 </resources>

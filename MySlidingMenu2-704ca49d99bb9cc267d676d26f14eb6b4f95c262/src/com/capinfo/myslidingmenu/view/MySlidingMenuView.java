@@ -147,6 +147,12 @@ public class MySlidingMenuView extends ViewGroup {
 			final int touchSlop = lTouchSlop;
 			boolean xMoved = xDiff > touchSlop;
 			boolean yMoved = yDiff > touchSlop;
+			if (!ismenuclose) {
+				if (x > LEFT_VIEW_WIDTH) {
+				closeMenu();
+				lTouchState = 1;
+				}
+			}
 
 			if (xMoved || yMoved) {
 				if (xMoved) {

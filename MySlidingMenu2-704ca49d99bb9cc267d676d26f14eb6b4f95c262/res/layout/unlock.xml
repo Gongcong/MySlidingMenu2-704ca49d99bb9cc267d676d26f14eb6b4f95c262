@@ -4,55 +4,71 @@
     android:layout_height="match_parent"
     android:background="@android:color/darker_gray"
     android:gravity="center"
-    android:orientation="vertical">
-    
-        <com.capinfo.unlock.LockPatternView
-         xmlns:app="http://schemas.android.com/apk/res/com.wgs.jiesuo"
-         android:id="@+id/lpv_lock_first"
-        android:background="@android:color/darker_gray"
-         android:layout_width="100dp"
-         android:layout_height="100dp"
-         android:layout_marginBottom="30dp"
-        />
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/lockinfo"
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView" />
 
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="TextView" />
+    </LinearLayout>
+
     <com.capinfo.unlock.LockPatternView
-         xmlns:app="http://schemas.android.com/apk/res/com.wgs.jiesuo"
-         android:id="@+id/lpv_lock"
-         android:background="@android:color/darker_gray"
-         android:layout_width="300dp"
-         android:layout_height="300dp"
-         
-        />
-    
+        xmlns:app="http://schemas.android.com/apk/res/com.wgs.jiesuo"
+        android:id="@+id/lpv_lock_first"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="30dp"
+        android:background="@android:color/darker_gray"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/lockinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <com.capinfo.unlock.LockPatternView
+        xmlns:app="http://schemas.android.com/apk/res/com.wgs.jiesuo"
+        android:id="@+id/lpv_lock"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@android:color/darker_gray" />
+
     <LinearLayout
-        android:orientation="horizontal" 
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        >
-    
-    <Button 
-        android:id="@+id/btn_set_pwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="设置密码"
-        />
-    <Button 
-        android:id="@+id/btn_reset_pwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="重置密码"
-        />
-     <Button 
-        android:id="@+id/btn_check_pwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="校验密码"
-        />
-     </LinearLayout>
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_set_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置密码" />
+
+        <Button
+            android:id="@+id/btn_reset_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="重置密码" />
+
+        <Button
+            android:id="@+id/btn_check_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="校验密码" />
+    </LinearLayout>
+
 </LinearLayout>

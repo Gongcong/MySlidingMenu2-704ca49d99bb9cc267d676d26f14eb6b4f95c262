@@ -1,16 +1,20 @@
 package com.capinfo.myslidingmenu;
 
 import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import android.app.Activity;
+import org.json.JSONObject;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -80,6 +84,8 @@ public class LoginActivity extends BaseActivity {
 
 	/** 登录loading提示框 */
 	private ProgressDialog proDialog;
+	
+	private MyApplication MyApp;
 
 	/** 登录后台通知更新UI线程,主要用于登录失败,通知UI线程更新界面 */
 	Handler loginHandler = new Handler() {
@@ -108,6 +114,7 @@ public class LoginActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login_main);
 		findViewsById();
+		MyApp = (MyApplication)getApplication();
 		initView(false);
 		// 需要去submitListener里面设置URL
 		setListener();
@@ -166,23 +173,25 @@ public class LoginActivity extends BaseActivity {
 		// 用于标记登陆状态
 		boolean loginState = false;
 		HttpURLConnection conn = null;
-		DataInputStream dis = null;
 		try {
 			URL url = new URL(validateUrl);
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setConnectTimeout(5000);
 			conn.setRequestMethod("GET");
 			conn.connect();
-			dis = new DataInputStream(conn.getInputStream());
+			//dis = new DataInputStream(conn.getInputStream());
+			String js = StringUtils.inputStream2String(conn.getInputStream());
+			JSONObject json=new JSONObject(js);
+			String result = json.getString("result");
 			if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
 				Log.d(this.toString(),
 						"getResponseCode() not HttpURLConnection.HTTP_OK");
 				isNetError = true;
 				return false;
 			}
-			// 读取服务器的登录状态码
-			int loginStateInt = dis.readInt();
-			if (loginStateInt > 0) {
+
+			 System.out.println("is====="+result);
+			if (result.equals("true")) {
 				loginState = true;
 			}
 		} catch (Exception e) {
@@ -253,7 +262,8 @@ public class LoginActivity extends BaseActivity {
 			String account = view_userName.getText().toString();
 			String pwd = view_password.getText().toString();
 			if (StringUtils.isEmpty(account) || StringUtils.isEmpty(pwd)) {
-				Toast.makeText(getApplicationContext(), "请输入用户名和密码", Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplicationContext(), "请输入用户名和密码",
+						Toast.LENGTH_LONG).show();
 				return;
 			}
 			proDialog = ProgressDialog.show(LoginActivity.this, "连接中..",
@@ -263,7 +273,6 @@ public class LoginActivity extends BaseActivity {
 			loginThread.start();
 		}
 	};
-
 
 	/** 记住我checkBoxListener */
 	private OnCheckedChangeListener rememberMeListener = new OnCheckedChangeListener() {
@@ -299,14 +308,20 @@ public class LoginActivity extends BaseActivity {
 		share = null;
 	}
 
+
+
+
 	class LoginFailureHandler implements Runnable {
 		@Override
 		public void run() {
 			userName = view_userName.getText().toString();
 			password = view_password.getText().toString();
+			TelephonyManager tm = (TelephonyManager) LoginActivity.this
+					.getSystemService(TELEPHONY_SERVICE);
+			String MEI = tm.getDeviceId();
 			// 这里换成你的验证地址
-			String validateURL = "http://192.168.1.229:8080/android_server/LoginValidate?userName="
-					+ userName + "&password=" + password;
+			String validateURL = "http://192.168.0.7/newsletter/login/user?account="
+					+ userName + "&password=" + password + "&identifier=" + MEI;
 			boolean loginState = validateLocalLogin(userName, password,
 					validateURL);
 			Log.d(this.toString(), "validateLogin");
@@ -315,12 +330,11 @@ public class LoginActivity extends BaseActivity {
 			if (loginState) {
 				// 需要传输数据到登陆后的界面,
 				Intent intent = new Intent();
-				intent.setClass(LoginActivity.this, MainActivity.class);
+				intent.setClass(LoginActivity.this, LoginActivity.class);
 				Bundle bundle = new Bundle();
 				bundle.putString("MAP_USERNAME", userName);
 				intent.putExtras(bundle);
 				// 转向登陆后的页面
-				startActivity(intent);
 				proDialog.dismiss();
 			} else {
 				// 通过调用handler来通知UI主线程更新UI,

@@ -3,12 +3,13 @@ package com.capinfo.myslidingmenu;
 import com.capinfo.unlock.LockPatternUtils;
 import com.capinfo.util.StringUtils;
 
+import android.R.bool;
 import android.app.Application;
 
 public class MyApplication extends Application{
 	
 	public boolean lockState = false;
-	
+	public boolean loginState = false;
 
 	@Override
 	public void onCreate() {
@@ -37,4 +38,11 @@ public class MyApplication extends Application{
 		return lockState;
 	}
 	
+	public void setLoginSate(boolean loginflag) {
+		loginState = loginflag;
+	}
+	
+	public boolean getLoginSate() {
+		return loginState;
+	}
 }

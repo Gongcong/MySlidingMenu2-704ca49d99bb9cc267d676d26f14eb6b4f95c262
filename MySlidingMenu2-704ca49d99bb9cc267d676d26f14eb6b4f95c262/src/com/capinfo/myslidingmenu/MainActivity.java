@@ -73,10 +73,7 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 		init();
-		TelephonyManager tm = (TelephonyManager) this
-				.getSystemService(TELEPHONY_SERVICE);
-		tm.getDeviceId();
-		System.out.println("1111=" + tm.getDeviceId());
+
 
 	}
 
